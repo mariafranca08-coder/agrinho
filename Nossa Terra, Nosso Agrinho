@@ -1,0 +1,293 @@
+HTML
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Terra, Nosso Agrinho</title>
+    <style>
+        /* Configurações Globais */
+        :root {
+            --verde-escuro: #1b4d3e;
+            --verde-claro: #2ae1a6;
+            --verde-folha: #4caf50;
+            --bege-claro: #f4f9f4;
+            --texto-escuro: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bege-claro);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--verde-escuro), #0f2b22);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--verde-claro);
+            max-width: 800px;
+            margin: 1rem auto 0 auto;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Seções */
+        section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--verde-escuro);
+            border-bottom: 3px solid var(--verde-claro);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* Pilares Agroforte */
+        .pilares {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .pilar-card {
+            background: #eef7ee;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--verde-folha);
+        }
+
+        .pilar-card h3 {
+            margin-top: 0;
+            color: var(--verde-escuro);
+        }
+
+        /* Tabela da Galeria */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--verde-escuro);
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Seção de Vídeos */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .video-card {
+            background: #333;
+            color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .video-placeholder {
+            background: #222;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .video-placeholder:hover {
+            background: var(--verde-folha);
+        }
+
+        .video-card p {
+            padding: 1rem;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Curiosidades */
+        .curiosidade-item {
+            background: #fff8e7;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #ffcc00;
+        }
+
+        /* Chamada para Ação (Footer/CTA) */
+        .cta {
+            text-align: center;
+            background: var(--verde-escuro);
+            color: white;
+            padding: 3rem 1rem;
+            border-radius: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--verde-claro);
+            color: var(--verde-escuro);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            margin-top: 1rem;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌍 Nossa Terra, Nosso Agrinho</h1>
+        <p>O futuro do Agroforte é sustentável, tecnológico e divertido! Bem-vindo ao espaço onde a tecnologia do campo se encontra com o respeito à natureza.</p>
+    </header>
+
+    <div class="container">
+
+        <section>
+            <h2>🚀 O que é o Agroforte Sustentável?</h2>
+            <p>Não é apenas produzir mais, é produzir melhor. O equilíbrio perfeito existe e nós te mostramos como ele funciona na prática!</p>
+            
+            <div class="pilares">
+                <div class="pilar-card">
+                    <h3>📈 Produção Máxima</h3>
+                    <p>Uso de tecnologia de ponta, drones e inteligência artificial para otimizar as colheitas.</p>
+                </div>
+                <div class="pilar-card">
+                    <h3>🍃 Impacto Mínimo</h3>
+                    <p>Proteção de nascentes, rotação de culturas e uso de energias renováveis (como a solar e a biomassa).</p>
+                </div>
+                <div class="pilar-card">
+                    <h3>🤝 Conexão Direta</h3>
+                    <p>Informação descomplicada para que todo mundo entenda o valor do campo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📸 Janela do Campo (Galeria de Fotos)</h2>
+            <p>Espaço dedicado a imagens marcantes e cheias de vida. Veja a sustentabilidade de perto:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Foto</th>
+                        <th>O que ela mostra?</th>
+                        <th>O impacto positivo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>🌱 Tecnologia Verde</strong></td>
+                        <td>Drones sobrevoando plantações de precisão.</td>
+                        <td>Redução drástica no uso de insumos e água.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🐝 Polinizadores em Ação</strong></td>
+                        <td>Abelhas em áreas de preservação ao lado das lavouras.</td>
+                        <td>Biodiversidade garantida e plantas mais fortes.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>☀️ Energia do Futuro</strong></td>
+                        <td>Painéis solares alimentando sistemas de irrigação.</td>
+                        <td>Produção limpa e com emissão zero de carbono.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>🎬 Curta o Campo (Vídeos e Reels)</h2>
+            <p>Vídeos curtos, dinâmicos e fáceis de entender. Clique e aprenda em segundos:</p>
+            
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-placeholder">🌱</div>
+                    <p>"O Segredo do Solo Vivo"</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">☕</div>
+                    <p>"De onde vem o seu café?"</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-placeholder">🤖</div>
+                    <p>"Agro do Futuro em 60s"</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>💡 Você Sabia? (Curiosidades Divertidas)</h2>
+            
+            <div class="curiosidade-item">
+                <h3>🇧🇷 O Brasil é Gigante no Verde</h3>
+                <p>Sabia que os agricultores brasileiros preservam, por lei, uma enorme parte de suas propriedades com mata nativa? O agro ajuda a guardar a nossa floresta!</p>
+            </div>
+
+            <div class="curiosidade-item">
+                <h3>💧 Gotejo Inteligente</h3>
+                <p>A irrigação moderna não desperdiça água. Ela vai direto na raiz da planta, gota a gota, como se fosse um batom hidratante.</p>
+            </div>
+
+            <div class="curiosidade-item">
+                <h3>🐞 Insetos do Bem</h3>
+                <p>Nem todo inseto é praga! Muitos deles são os "super-heróis" do campo, ajudando a combater os bichinhos que fazem mal às plantas.</p>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>🤝 Faça Parte Desse Movimento!</h2>
+            <p>O futuro da nossa terra depende do conhecimento. Compartilhe nossas fotos, assista aos vídeos e espalhe essa ideia!</p>
+            <a href="#" class="btn">Compartilhar o Agroforte</a>
+        </section>
+
+    </div>
+
+</body>
+</html>
