@@ -2,125 +2,198 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Agro Aventura</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Forte - Futuro Sustentável</title>
 
 <style>
 body{
     font-family: Arial, sans-serif;
-    background:#dff7df;
-    text-align:center;
+    background:#e8f5e9;
     margin:0;
+    text-align:center;
 }
 
-.caixa{
-    max-width:700px;
-    margin:20px auto;
+.tela{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
     background:white;
     padding:20px;
-    border-radius:20px;
-    box-shadow:0 0 10px gray;
-}
-
-img{
-    width:100%;
+    margin:15px;
     border-radius:15px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
 
 button{
-    background:green;
+    background:#2e7d32;
     color:white;
     border:none;
     padding:12px 20px;
-    margin:8px;
     border-radius:10px;
     cursor:pointer;
+    margin:10px;
     font-size:16px;
 }
 
 button:hover{
-    background:#006400;
+    background:#1b5e20;
 }
 
-#jogo{
-    display:none;
+input{
+    padding:10px;
+    width:250px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+img{
+    width:100%;
+    border-radius:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="caixa">
+<div id="login" class="tela">
+    <div class="card">
+        <h1>🌱 Agro Forte, Futuro Sustentável 🌱</h1>
 
-<div id="inicio">
+        <p>Digite seu nome:</p>
 
-<h1>🌱 Agro Aventura 🌱</h1>
+        <input type="text" id="nome">
 
-<img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800">
+        <br><br>
 
-<h2>Sobre a Agricultura</h2>
+        <button onclick="entrar()">Entrar</button>
+    </div>
+</div>
 
-<p>
-A agricultura é uma das atividades mais importantes do Brasil.
-Ela produz alimentos como milho, soja, café, feijão e frutas.
-</p>
+<div id="principal" class="tela" style="display:none">
 
-<p>
-Os agricultores utilizam máquinas modernas e tecnologia para
-aumentar a produção e cuidar do meio ambiente.
-</p>
+    <div class="card">
+        <h1 id="saudacao"></h1>
 
-<button onclick="iniciarJogo()">
-🚜 Começar Quiz
-</button>
+        <p>
+        Bem-vindo ao Agro Forte, Futuro Sustentável.
+        Aqui você vai aprender como a agricultura pode produzir
+        alimentos e ao mesmo tempo preservar o meio ambiente.
+        </p>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000">
+
+        <h2>🌾 Produção e Sustentabilidade</h2>
+
+        <p>
+        O agro produz alimentos para milhões de pessoas.
+        Hoje a tecnologia ajuda os agricultores a economizar água,
+        proteger o solo e preservar a natureza.
+        </p>
+
+        <p>
+        O objetivo é produzir mais alimentos com menos impacto ambiental.
+        Esse é o equilíbrio entre produção e meio ambiente.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Escolha uma opção</h2>
+
+        <button onclick="alert('História em quadrinhos em construção!')">
+        📚 História em Quadrinhos
+        </button>
+
+        <button onclick="alert('Vídeo em construção!')">
+        🎬 Assistir Vídeo
+        </button>
+
+        <button onclick="iniciarQuiz()">
+        🎮 Fazer Quiz
+        </button>
+    </div>
 
 </div>
 
-<div id="jogo">
+<div id="quiz" class="tela" style="display:none">
 
-<h2 id="pergunta"></h2>
+    <div class="card">
 
-<div id="alternativas"></div>
+        <h2 id="pergunta"></h2>
 
-<h3 id="resultado"></h3>
+        <div id="alternativas"></div>
 
-<h2 id="pontos">⭐ Pontos: 0</h2>
+        <h3 id="resultado"></h3>
 
-</div>
+        <h2 id="pontos">⭐ Pontos: 0</h2>
+
+    </div>
 
 </div>
 
 <script>
 
+let nomeUsuario = "";
+
+function entrar(){
+
+nomeUsuario = document.getElementById("nome").value;
+
+if(nomeUsuario == ""){
+    alert("Digite seu nome.");
+    return;
+}
+
+document.getElementById("login").style.display="none";
+document.getElementById("principal").style.display="block";
+
+document.getElementById("saudacao").innerHTML =
+"Olá, " + nomeUsuario + "! 👋";
+
+}
+
 let perguntas = [
 
 {
-pergunta:"Qual máquina é usada para colher grãos?",
-opcoes:["Trator","Colheitadeira","Bicicleta"],
-correta:"Colheitadeira"
+pergunta:"Qual prática ajuda a conservar o solo?",
+opcoes:["Plantio direto","Queimada","Desmatamento"],
+correta:"Plantio direto"
 },
 
 {
-pergunta:"O que as plantas precisam para fazer fotossíntese?",
-opcoes:["Luz","Gasolina","Plástico"],
-correta:"Luz"
+pergunta:"Qual tecnologia ajuda a economizar água?",
+opcoes:["Irrigação inteligente","Queimada","Poluição"],
+correta:"Irrigação inteligente"
 },
 
 {
-pergunta:"Qual destes é um produto agrícola?",
-opcoes:["Soja","Pedra","Ferro"],
-correta:"Soja"
+pergunta:"Por que as abelhas são importantes?",
+opcoes:["Polinização","Produzem plástico","Produzem combustível"],
+correta:"Polinização"
 },
 
 {
-pergunta:"Qual animal é muito utilizado na produção de leite?",
-opcoes:["Vaca","Peixe","Papagaio"],
-correta:"Vaca"
+pergunta:"O que significa agricultura sustentável?",
+opcoes:[
+"Produzir preservando recursos",
+"Desmatar mais",
+"Usar água sem controle"
+],
+correta:"Produzir preservando recursos"
 },
 
 {
-pergunta:"Qual produto é usado para fazer café?",
-opcoes:["Café","Areia","Vidro"],
-correta:"Café"
+pergunta:"O que ajuda a proteger os rios?",
+opcoes:[
+"Mata ciliar",
+"Lixo",
+"Queimadas"
+],
+correta:"Mata ciliar"
 }
 
 ];
@@ -128,20 +201,25 @@ correta:"Café"
 let atual = 0;
 let pontos = 0;
 
-function iniciarJogo(){
-document.getElementById("inicio").style.display = "none";
-document.getElementById("jogo").style.display = "block";
+function iniciarQuiz(){
+
+document.getElementById("principal").style.display="none";
+document.getElementById("quiz").style.display="block";
+
 carregarPergunta();
+
 }
 
 function carregarPergunta(){
 
 if(atual >= perguntas.length){
 
-document.getElementById("jogo").innerHTML =
-`
-<h1>🏆 Fim do Quiz!</h1>
-<h2>Você fez ${pontos} pontos!</h2>
+document.getElementById("quiz").innerHTML = `
+<div class="card">
+<h1>🏆 Parabéns, ${nomeUsuario}!</h1>
+<h2>Você terminou o quiz.</h2>
+<h2>Pontuação: ${pontos}/${perguntas.length}</h2>
+</div>
 `;
 
 return;
@@ -151,25 +229,36 @@ let p = perguntas[atual];
 
 document.getElementById("pergunta").innerHTML = p.pergunta;
 
-let botoes = "";
+let html = "";
 
 for(let opcao of p.opcoes){
-botoes +=
-`<button onclick="responder('${opcao}')">${opcao}</button><br>`;
+
+html += `
+<button onclick="responder('${opcao}')">
+${opcao}
+</button><br>
+`;
+
 }
 
-document.getElementById("alternativas").innerHTML = botoes;
+document.getElementById("alternativas").innerHTML = html;
+
 }
 
 function responder(opcao){
 
-if(opcao === perguntas[atual].correta){
+if(opcao == perguntas[atual].correta){
+
 pontos++;
+
 document.getElementById("resultado").innerHTML =
 "✅ Resposta correta!";
+
 }else{
+
 document.getElementById("resultado").innerHTML =
 "❌ Resposta incorreta!";
+
 }
 
 document.getElementById("pontos").innerHTML =
@@ -177,7 +266,8 @@ document.getElementById("pontos").innerHTML =
 
 atual++;
 
-setTimeout(carregarPergunta, 1200);
+setTimeout(carregarPergunta,1200);
+
 }
 
 </script>
