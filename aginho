@@ -6,75 +6,178 @@
 
 <style>
 body{
-    font-family:Arial;
+    font-family: Arial, sans-serif;
     background:#dff7df;
     text-align:center;
+    margin:0;
 }
 
 .caixa{
-    width:500px;
-    margin:50px auto;
+    max-width:700px;
+    margin:20px auto;
     background:white;
     padding:20px;
     border-radius:20px;
     box-shadow:0 0 10px gray;
 }
 
-input{
-    padding:10px;
-    width:200px;
+img{
+    width:100%;
+    border-radius:15px;
 }
 
 button{
-    padding:10px 20px;
     background:green;
     color:white;
     border:none;
+    padding:12px 20px;
+    margin:8px;
     border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#006400;
+}
+
+#jogo{
+    display:none;
 }
 </style>
-
 </head>
+
 <body>
 
 <div class="caixa">
-    <h1>🌱 Agro Aventura 🌱</h1>
 
-    <h2 id="pergunta">
-        Qual máquina é usada para colher grãos?
-    </h2>
+<div id="inicio">
 
-    <input id="resposta" type="text">
+<h1>🌱 Agro Aventura 🌱</h1>
 
-    <br><br>
+<img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800">
 
-    <button onclick="verificar()">
-        Responder
-    </button>
+<h2>Sobre a Agricultura</h2>
 
-    <h3 id="pontos">⭐ Pontos: 0</h3>
+<p>
+A agricultura é uma das atividades mais importantes do Brasil.
+Ela produz alimentos como milho, soja, café, feijão e frutas.
+</p>
+
+<p>
+Os agricultores utilizam máquinas modernas e tecnologia para
+aumentar a produção e cuidar do meio ambiente.
+</p>
+
+<button onclick="iniciarJogo()">
+🚜 Começar Quiz
+</button>
+
+</div>
+
+<div id="jogo">
+
+<h2 id="pergunta"></h2>
+
+<div id="alternativas"></div>
+
+<h3 id="resultado"></h3>
+
+<h2 id="pontos">⭐ Pontos: 0</h2>
+
+</div>
+
 </div>
 
 <script>
 
-let pontos = 0;
+let perguntas = [
 
-function verificar(){
+{
+pergunta:"Qual máquina é usada para colher grãos?",
+opcoes:["Trator","Colheitadeira","Bicicleta"],
+correta:"Colheitadeira"
+},
 
-let resposta =
-document.getElementById("resposta")
-.value.toLowerCase();
+{
+pergunta:"O que as plantas precisam para fazer fotossíntese?",
+opcoes:["Luz","Gasolina","Plástico"],
+correta:"Luz"
+},
 
-if(resposta=="colheitadeira"){
-    pontos++;
-    alert("Parabéns! Você acertou!");
-}else{
-    alert("Resposta incorreta!");
+{
+pergunta:"Qual destes é um produto agrícola?",
+opcoes:["Soja","Pedra","Ferro"],
+correta:"Soja"
+},
+
+{
+pergunta:"Qual animal é muito utilizado na produção de leite?",
+opcoes:["Vaca","Peixe","Papagaio"],
+correta:"Vaca"
+},
+
+{
+pergunta:"Qual produto é usado para fazer café?",
+opcoes:["Café","Areia","Vidro"],
+correta:"Café"
 }
 
-document.getElementById("pontos")
-.innerHTML = "⭐ Pontos: " + pontos;
+];
 
+let atual = 0;
+let pontos = 0;
+
+function iniciarJogo(){
+document.getElementById("inicio").style.display = "none";
+document.getElementById("jogo").style.display = "block";
+carregarPergunta();
+}
+
+function carregarPergunta(){
+
+if(atual >= perguntas.length){
+
+document.getElementById("jogo").innerHTML =
+`
+<h1>🏆 Fim do Quiz!</h1>
+<h2>Você fez ${pontos} pontos!</h2>
+`;
+
+return;
+}
+
+let p = perguntas[atual];
+
+document.getElementById("pergunta").innerHTML = p.pergunta;
+
+let botoes = "";
+
+for(let opcao of p.opcoes){
+botoes +=
+`<button onclick="responder('${opcao}')">${opcao}</button><br>`;
+}
+
+document.getElementById("alternativas").innerHTML = botoes;
+}
+
+function responder(opcao){
+
+if(opcao === perguntas[atual].correta){
+pontos++;
+document.getElementById("resultado").innerHTML =
+"✅ Resposta correta!";
+}else{
+document.getElementById("resultado").innerHTML =
+"❌ Resposta incorreta!";
+}
+
+document.getElementById("pontos").innerHTML =
+"⭐ Pontos: " + pontos;
+
+atual++;
+
+setTimeout(carregarPergunta, 1200);
 }
 
 </script>
