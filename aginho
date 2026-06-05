@@ -2,65 +2,81 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Agrinho</title>
+<title>Agro Aventura</title>
+
 <style>
 body{
-    font-family: Arial, sans-serif;
-    background:#dff5d8;
+    font-family:Arial;
+    background:#dff7df;
     text-align:center;
 }
+
 .caixa{
     width:500px;
-    margin:30px auto;
+    margin:50px auto;
     background:white;
     padding:20px;
-    border-radius:15px;
+    border-radius:20px;
     box-shadow:0 0 10px gray;
 }
+
+input{
+    padding:10px;
+    width:200px;
+}
+
 button{
+    padding:10px 20px;
     background:green;
     color:white;
     border:none;
-    padding:10px 20px;
     border-radius:10px;
-    cursor:pointer;
 }
 </style>
+
 </head>
 <body>
 
 <div class="caixa">
     <h1>🌱 Agro Aventura 🌱</h1>
 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Tractor.jpg/320px-Tractor.jpg" width="250">
+    <h2 id="pergunta">
+        Qual máquina é usada para colher grãos?
+    </h2>
 
-    <h2 id="pergunta">Qual máquina é usada para colher grãos?</h2>
-
-    <input type="text" id="resposta">
+    <input id="resposta" type="text">
 
     <br><br>
 
-    <button onclick="verificar()">Responder</button>
+    <button onclick="verificar()">
+        Responder
+    </button>
 
-    <h3 id="pontos">Pontos: 0</h3>
+    <h3 id="pontos">⭐ Pontos: 0</h3>
 </div>
 
 <script>
+
 let pontos = 0;
 
 function verificar(){
-    let resposta =
-    document.getElementById("resposta").value.toLowerCase();
 
-    if(resposta === "colheitadeira"){
-        pontos++;
-        alert("Parabéns! Resposta correta!");
-        document.getElementById("pontos").innerHTML =
-        "Pontos: " + pontos;
-    }else{
-        alert("Tente novamente!");
-    }
+let resposta =
+document.getElementById("resposta")
+.value.toLowerCase();
+
+if(resposta=="colheitadeira"){
+    pontos++;
+    alert("Parabéns! Você acertou!");
+}else{
+    alert("Resposta incorreta!");
 }
+
+document.getElementById("pontos")
+.innerHTML = "⭐ Pontos: " + pontos;
+
+}
+
 </script>
 
 </body>
