@@ -1,86 +1,83 @@
-import tkinter as tk
-from tkinter import messagebox
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Agro Aventura</title>
 
-# Informações sobre agro
-perguntas = [
-    {
-        "pergunta": "Qual máquina é usada para colher grãos?",
-        "resposta": "colheitadeira"
-    },
-    {
-        "pergunta": "Qual é o principal alimento produzido pelo milho?",
-        "resposta": "ração"
-    },
-    {
-        "pergunta": "O que as plantas precisam para fazer fotossíntese?",
-        "resposta": "luz"
-    }
-]
+<style>
+body{
+    font-family:Arial;
+    background:#dff7df;
+    text-align:center;
+}
 
-indice = 0
-pontos = 0
+.caixa{
+    width:500px;
+    margin:50px auto;
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 0 10px gray;
+}
 
-def verificar():
-    global indice, pontos
+input{
+    padding:10px;
+    width:200px;
+}
 
-    resposta = entrada.get().lower()
+button{
+    padding:10px 20px;
+    background:green;
+    color:white;
+    border:none;
+    border-radius:10px;
+}
+</style>
 
-    if resposta == perguntas[indice]["resposta"]:
-        pontos += 1
-        messagebox.showinfo("Parabéns!", "Resposta correta!")
-    else:
-        messagebox.showerror(
-            "Erro",
-            f"Resposta incorreta! A resposta era: {perguntas[indice]['resposta']}"
-        )
+</head>
+<body>
 
-    indice += 1
+<div class="caixa">
+    <h1>🌱 Agro Aventura 🌱</h1>
 
-    if indice < len(perguntas):
-        pergunta_label.config(text=perguntas[indice]["pergunta"])
-        entrada.delete(0, tk.END)
-    else:
-        messagebox.showinfo(
-            "Fim do jogo",
-            f"Você fez {pontos} de {len(perguntas)} pontos!"
-        )
-        janela.quit()
+    <h2 id="pergunta">
+        Qual máquina é usada para colher grãos?
+    </h2>
 
-# Janela principal
-janela = tk.Tk()
-janela.title("Agro Quiz")
-janela.geometry("500x300")
+    <input id="resposta" type="text">
 
-titulo = tk.Label(
-    janela,
-    text="🌱 Agro Quiz Educativo 🌱",
-    font=("Arial", 16, "bold")
-)
-titulo.pack(pady=10)
+    <br><br>
 
-info = tk.Label(
-    janela,
-    text="Aprenda sobre agricultura enquanto joga!",
-    font=("Arial", 12)
-)
-info.pack()
+    <button onclick="verificar()">
+        Responder
+    </button>
 
-pergunta_label = tk.Label(
-    janela,
-    text=perguntas[0]["pergunta"],
-    font=("Arial", 12)
-)
-pergunta_label.pack(pady=20)
+    <h3 id="pontos">⭐ Pontos: 0</h3>
+</div>
 
-entrada = tk.Entry(janela, font=("Arial", 12))
-entrada.pack()
+<script>
 
-botao = tk.Button(
-    janela,
-    text="Responder",
-    command=verificar,
-    font=("Arial", 12)
-)
-botao.pack(pady=10)
+let pontos = 0;
 
-janela.mainloop()
+function verificar(){
+
+let resposta =
+document.getElementById("resposta")
+.value.toLowerCase();
+
+if(resposta=="colheitadeira"){
+    pontos++;
+    alert("Parabéns! Você acertou!");
+}else{
+    alert("Resposta incorreta!");
+}
+
+document.getElementById("pontos")
+.innerHTML = "⭐ Pontos: " + pontos;
+
+}
+
+</script>
+
+</body>
+</html>
