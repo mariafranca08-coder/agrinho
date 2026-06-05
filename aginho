@@ -1,0 +1,86 @@
+import tkinter as tk
+from tkinter import messagebox
+
+# Informações sobre agro
+perguntas = [
+    {
+        "pergunta": "Qual máquina é usada para colher grãos?",
+        "resposta": "colheitadeira"
+    },
+    {
+        "pergunta": "Qual é o principal alimento produzido pelo milho?",
+        "resposta": "ração"
+    },
+    {
+        "pergunta": "O que as plantas precisam para fazer fotossíntese?",
+        "resposta": "luz"
+    }
+]
+
+indice = 0
+pontos = 0
+
+def verificar():
+    global indice, pontos
+
+    resposta = entrada.get().lower()
+
+    if resposta == perguntas[indice]["resposta"]:
+        pontos += 1
+        messagebox.showinfo("Parabéns!", "Resposta correta!")
+    else:
+        messagebox.showerror(
+            "Erro",
+            f"Resposta incorreta! A resposta era: {perguntas[indice]['resposta']}"
+        )
+
+    indice += 1
+
+    if indice < len(perguntas):
+        pergunta_label.config(text=perguntas[indice]["pergunta"])
+        entrada.delete(0, tk.END)
+    else:
+        messagebox.showinfo(
+            "Fim do jogo",
+            f"Você fez {pontos} de {len(perguntas)} pontos!"
+        )
+        janela.quit()
+
+# Janela principal
+janela = tk.Tk()
+janela.title("Agro Quiz")
+janela.geometry("500x300")
+
+titulo = tk.Label(
+    janela,
+    text="🌱 Agro Quiz Educativo 🌱",
+    font=("Arial", 16, "bold")
+)
+titulo.pack(pady=10)
+
+info = tk.Label(
+    janela,
+    text="Aprenda sobre agricultura enquanto joga!",
+    font=("Arial", 12)
+)
+info.pack()
+
+pergunta_label = tk.Label(
+    janela,
+    text=perguntas[0]["pergunta"],
+    font=("Arial", 12)
+)
+pergunta_label.pack(pady=20)
+
+entrada = tk.Entry(janela, font=("Arial", 12))
+entrada.pack()
+
+botao = tk.Button(
+    janela,
+    text="Responder",
+    command=verificar,
+    font=("Arial", 12)
+)
+botao.pack(pady=10)
+
+janela.mainloop()
