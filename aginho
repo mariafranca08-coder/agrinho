@@ -108,7 +108,7 @@ img{
         📚 História em Quadrinhos
         </button>
 
-        <button onclick="alert('Vídeo em construção!')">
+        <button onclick="window.open('https://notebooklm.google.com/notebook/60bd64e2-29f2-4f5d-8b8b-1fde94ced9b2/artifact/9bf7715d-15f8-4b66-937a-c79a070d9721?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_', '_blank')">
         🎬 Assistir Vídeo
         </button>
 
