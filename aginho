@@ -25,6 +25,16 @@ body{
     margin:15px;
     border-radius:15px;
     box-shadow:0 0 10px rgba(0,0,0,0.2);
+    text-align: left; /* Alinhado à esquerda para melhorar a leitura dos textos longos */
+}
+
+/* Centraliza o texto especificamente nos títulos e telas de login/quiz */
+#login .card, #quiz .card, .card h1, .card h2, .card h3, .card button, .card img {
+    text-align: center;
+}
+
+.centro {
+    text-align: center;
 }
 
 button{
@@ -47,11 +57,15 @@ input{
     width:250px;
     border-radius:8px;
     border:1px solid #ccc;
+    display: block;
+    margin: 0 auto;
 }
 
 img{
     width:100%;
     border-radius:10px;
+    display: block;
+    margin-bottom: 15px;
 }
 </style>
 </head>
@@ -62,11 +76,11 @@ img{
     <div class="card">
         <h1>🌱 Agro Forte, Futuro Sustentável 🌱</h1>
 
-        <p>Digite seu nome:</p>
+        <p class="centro">Digite seu nome:</p>
 
         <input type="text" id="nome">
 
-        <br><br>
+        <br>
 
         <button onclick="entrar()">Entrar</button>
     </div>
@@ -74,34 +88,39 @@ img{
 
 <div id="principal" class="tela" style="display:none">
 
-    <div class="card">
+    <div class="card centro">
         <h1 id="saudacao"></h1>
-
-        <p>
-        Bem-vindo ao Agro Forte, Futuro Sustentável.
-        Aqui você vai aprender como a agricultura pode produzir
-        alimentos e ao mesmo tempo preservar o meio ambiente.
-        </p>
+        <p>Bem-vindo ao Agro Forte, Futuro Sustentável.</p>
     </div>
 
     <div class="card">
         <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000">
-
-        <h2>🌾 Produção e Sustentabilidade</h2>
-
+        <h2>🌾 Agro Forte, Futuro Sustentável: O Equilíbrio entre Produção e Meio Ambiente</h2>
         <p>
-        O agro produz alimentos para milhões de pessoas.
-        Hoje a tecnologia ajuda os agricultores a economizar água,
-        proteger o solo e preservar a natureza.
-        </p>
-
-        <p>
-        O objetivo é produzir mais alimentos com menos impacto ambiental.
-        Esse é o equilíbrio entre produção e meio ambiente.
+        No passado, muita gente acreditava que para produzir mais alimentos era necessário avançar desenfreadamente sobre as florestas. Hoje, a realidade é completamente diferente. O Agro Forte é aquele que usa a inteligência, a tecnologia e a ciência para produzir em abundância, garantindo a segurança alimentar do planeta enquanto protege os recursos naturais. Isso é o futuro sustentável.
         </p>
     </div>
 
     <div class="card">
+        <h2>📐 Os Pilares do Equilíbrio</h2>
+        <p>Para entender como esse equilíbrio funciona na prática, podemos olhar para três pilares fundamentais:</p>
+        
+        <ul>
+            <li><strong>Tecnologia e Produtividade:</strong> Graças a bioinsumos, sementes melhoradas e sensores de precisão, o agricultor consegue produzir muito mais no mesmo pedaço de terra. É o chamado "efeito poupa-terra": produz-se mais quilos de alimento por hectare, sem a necessidade de abrir novas áreas de mata nativa.</li>
+            <li><strong>Práticas Regenerativas:</strong> Técnicas como o plantio direto (que protege o solo), a rotação de culturas e a Integração Lavoura-Pecuária-Floresta (ILPF) transformam as fazendas em aliadas do meio ambiente. Elas ajudam a reter água, recuperam solos degradados e sequestram carbono da atmosfera.</li>
+            <li><strong>Conservação e Legislação:</strong> O produtor rural brasileiro, por exemplo, cumpre regras rigorosas de preservação, mantendo áreas de Reserva Legal e Áreas de Preservação Permanente (APPs) com vegetação nativa dentro de suas propriedades.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>⚡ O Grande Desafio</h2>
+        <p>O mundo precisa de comida, mas também precisa de água limpa, solo fértil e clima estável. A agricultura sustentável prova que a produção e a conservação não são inimigas; elas dependem uma da outra.</p>
+        
+        <h3>Por que isso importa para o futuro?</h3>
+        <p>Um agro forte de verdade não esgota o solo hoje para passar fome amanhã. Ele cuida da terra para que ela continue gerando frutos por gerações. Quando unimos a eficiência do campo com o respeito ao meio ambiente, geramos emprego, movimentamos a economia e garantimos a saúde do nosso planeta.</p>
+    </div>
+
+    <div class="card centro">
         <h2>Escolha uma opção</h2>
 
         <button onclick="alert('História em quadrinhos em construção!')">
@@ -125,7 +144,7 @@ img{
 
         <h2 id="pergunta"></h2>
 
-        <div id="alternativas"></div>
+        <div id="alternativas" class="centro"></div>
 
         <h3 id="resultado"></h3>
 
@@ -178,99 +197,4 @@ correta:"Polinização"
 
 {
 pergunta:"O que significa agricultura sustentável?",
-opcoes:[
-"Produzir preservando recursos",
-"Desmatar mais",
-"Usar água sem controle"
-],
-correta:"Produzir preservando recursos"
-},
-
-{
-pergunta:"O que ajuda a proteger os rios?",
-opcoes:[
-"Mata ciliar",
-"Lixo",
-"Queimadas"
-],
-correta:"Mata ciliar"
-}
-
-];
-
-let atual = 0;
-let pontos = 0;
-
-function iniciarQuiz(){
-
-document.getElementById("principal").style.display="none";
-document.getElementById("quiz").style.display="block";
-
-carregarPergunta();
-
-}
-
-function carregarPergunta(){
-
-if(atual >= perguntas.length){
-
-document.getElementById("quiz").innerHTML = `
-<div class="card">
-<h1>🏆 Parabéns, ${nomeUsuario}!</h1>
-<h2>Você terminou o quiz.</h2>
-<h2>Pontuação: ${pontos}/${perguntas.length}</h2>
-</div>
-`;
-
-return;
-}
-
-let p = perguntas[atual];
-
-document.getElementById("pergunta").innerHTML = p.pergunta;
-
-let html = "";
-
-for(let opcao of p.opcoes){
-
-html += `
-<button onclick="responder('${opcao}')">
-${opcao}
-</button><br>
-`;
-
-}
-
-document.getElementById("alternativas").innerHTML = html;
-
-}
-
-function responder(opcao){
-
-if(opcao == perguntas[atual].correta){
-
-pontos++;
-
-document.getElementById("resultado").innerHTML =
-"✅ Resposta correta!";
-
-}else{
-
-document.getElementById("resultado").innerHTML =
-"❌ Resposta incorreta!";
-
-}
-
-document.getElementById("pontos").innerHTML =
-"⭐ Pontos: " + pontos;
-
-atual++;
-
-setTimeout(carregarPergunta,1200);
-
-}
-
-</script>
-
-</body>
-</html>
+opcoes:
