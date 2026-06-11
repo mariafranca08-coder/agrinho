@@ -1,5 +1,4 @@
 let perguntas = [
-
 {
 pergunta:"Qual é a principal mudança de paradigma entre a visão antiga da agricultura e o conceito de Agro Forte apresentado no texto?",
 opcoes:[
@@ -45,7 +44,7 @@ opcoes:[
 "Retenção de água no solo e sequestro de carbono."
 ],
 correta:3,
-explicacao:"Essas técnicas melhoram a qualidade do solo e ajudam a combater as mudanças climáticas."
+explicacao:"Essas técnicas ajudam a conservar o solo e combater as mudanças climáticas."
 },
 
 {
@@ -63,39 +62,35 @@ explicacao:"A legislação exige a preservação de áreas naturais dentro das p
 {
 pergunta:"De acordo com o texto, qual é o risco de não se adotar uma agricultura sustentável hoje?",
 opcoes:[
-"Aumentar empregos excessivamente.",
+"Aumentar excessivamente os empregos no campo.",
 "Tornar o solo fértil demais.",
-"Garantir clima estável.",
-"Esgotar o solo agora e enfrentar escassez de recursos no futuro."
+"Garantir um clima estável.",
+"Esgotar o solo agora e enfrentar escassez de recursos e alimentos no futuro."
 ],
 correta:3,
-explicacao:"A falta de sustentabilidade compromete a produção agrícola das próximas gerações."
+explicacao:"O uso inadequado dos recursos compromete a produção das próximas gerações."
 },
 
 {
-pergunta:"Por que produção e conservação dependem uma da outra?",
+pergunta:"Por que o texto afirma que produção e conservação dependem uma da outra?",
 opcoes:[
-"Porque florestas dependem de fertilizantes agrícolas.",
-"Porque as leis aumentam os preços dos alimentos.",
+"Porque as florestas só sobrevivem com fertilizantes agrícolas.",
+"Porque as leis aumentam o preço dos alimentos.",
 "Porque sensores precisam de áreas desmatadas.",
 "Porque a agricultura precisa de solo fértil, água limpa e clima estável."
 ],
 correta:3,
-explicacao:"A natureza fornece os recursos essenciais para a agricultura."
+explicacao:"A natureza fornece os recursos essenciais para a produção agrícola."
 }
-
 ];
 
 let atual = 0;
 let pontos = 0;
 
 function iniciarQuiz(){
-
-document.getElementById("principal").style.display = "none";
-document.getElementById("quiz").style.display = "block";
-
+document.getElementById("principal").style.display="none";
+document.getElementById("quiz").style.display="block";
 mostrarPergunta();
-
 }
 
 function mostrarPergunta(){
@@ -109,8 +104,8 @@ document.getElementById("quiz").innerHTML = `
 
 <p>${
 pontos >= 6
-? "🌱 Parabéns! Você entende muito sobre Agro Forte e Sustentabilidade!"
-: "📚 Continue estudando para proteger o futuro do planeta!"
+? "🌱 Excelente! Você entende muito sobre Agro Forte e Sustentabilidade."
+: "📚 Continue estudando para proteger o futuro do planeta."
 }</p>
 
 <button onclick="location.reload()">Jogar Novamente</button>
@@ -118,48 +113,48 @@ pontos >= 6
 `;
 
 return;
-
 }
 
-let p = perguntas[atual];
+let perguntaAtual = perguntas[atual];
 
 document.getElementById("pergunta").innerHTML =
-`${atual + 1}/${perguntas.length}<br><br>${p.pergunta}`;
+`${atual+1}/${perguntas.length}<br><br>${perguntaAtual.pergunta}`;
 
 let html = "";
 
-for(let i=0;i<p.opcoes.length;i++){
-
+perguntaAtual.opcoes.forEach((opcao,index)=>{
 html += `
-<button class="opcao"
-onclick="responder(${i})">
-${String.fromCharCode(65+i)}. ${p.opcoes[i]}
-</button><br>
+<button class="opcao" onclick="responder(${index})">
+${String.fromCharCode(65+index)}. ${opcao}
+</button>
 `;
-
-}
+});
 
 document.getElementById("alternativas").innerHTML = html;
 document.getElementById("resultado").innerHTML = "";
-
 }
 
-function responder(escolhida){
+function responder(indice){
 
-let p = perguntas[atual];
+let perguntaAtual = perguntas[atual];
 
-if(escolhida === p.correta){
+if(indice === perguntaAtual.correta){
 
 pontos++;
 
 document.getElementById("resultado").innerHTML =
-`✅ Resposta correta!<br><br>${p.explicacao}`;
+`<div style="background:#14532d;padding:15px;border-radius:10px;border:2px solid #22c55e;">
+✅ Resposta correta!<br><br>
+${perguntaAtual.explicacao}
+</div>`;
 
 }else{
 
 document.getElementById("resultado").innerHTML =
-`❌ Resposta incorreta.<br><br>${p.explicacao}`;
-
+`<div style="background:#7f1d1d;padding:15px;border-radius:10px;border:2px solid #ef4444;">
+❌ Resposta incorreta!<br><br>
+${perguntaAtual.explicacao}
+</div>`;
 }
 
 document.getElementById("pontos").innerHTML =
