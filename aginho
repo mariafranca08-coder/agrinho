@@ -1,200 +1,174 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agro Forte - Futuro Sustentável</title>
-
-<style>
-body{
-    font-family: Arial, sans-serif;
-    background:#e8f5e9;
-    margin:0;
-    text-align:center;
-}
-
-.tela{
-    max-width:900px;
-    margin:auto;
-    padding:20px;
-}
-
-.card{
-    background:white;
-    padding:20px;
-    margin:15px;
-    border-radius:15px;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
-    text-align: left; /* Alinhado à esquerda para melhorar a leitura dos textos longos */
-}
-
-/* Centraliza o texto especificamente nos títulos e telas de login/quiz */
-#login .card, #quiz .card, .card h1, .card h2, .card h3, .card button, .card img {
-    text-align: center;
-}
-
-.centro {
-    text-align: center;
-}
-
-button{
-    background:#2e7d32;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:10px;
-    cursor:pointer;
-    margin:10px;
-    font-size:16px;
-}
-
-button:hover{
-    background:#1b5e20;
-}
-
-input{
-    padding:10px;
-    width:250px;
-    border-radius:8px;
-    border:1px solid #ccc;
-    display: block;
-    margin: 0 auto;
-}
-
-img{
-    width:100%;
-    border-radius:10px;
-    display: block;
-    margin-bottom: 15px;
-}
-</style>
-</head>
-
-<body>
-
-<div id="login" class="tela">
-    <div class="card">
-        <h1>🌱 Agro Forte, Futuro Sustentável 🌱</h1>
-
-        <p class="centro">Digite seu nome:</p>
-
-        <input type="text" id="nome">
-
-        <br>
-
-        <button onclick="entrar()">Entrar</button>
-    </div>
-</div>
-
-<div id="principal" class="tela" style="display:none">
-
-    <div class="card centro">
-        <h1 id="saudacao"></h1>
-        <p>Bem-vindo ao Agro Forte, Futuro Sustentável.</p>
-    </div>
-
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000">
-        <h2>🌾 Agro Forte, Futuro Sustentável: O Equilíbrio entre Produção e Meio Ambiente</h2>
-        <p>
-        No passado, muita gente acreditava que para produzir mais alimentos era necessário avançar desenfreadamente sobre as florestas. Hoje, a realidade é completamente diferente. O Agro Forte é aquele que usa a inteligência, a tecnologia e a ciência para produzir em abundância, garantindo a segurança alimentar do planeta enquanto protege os recursos naturais. Isso é o futuro sustentável.
-        </p>
-    </div>
-
-    <div class="card">
-        <h2>📐 Os Pilares do Equilíbrio</h2>
-        <p>Para entender como esse equilíbrio funciona na prática, podemos olhar para três pilares fundamentais:</p>
-        
-        <ul>
-            <li><strong>Tecnologia e Produtividade:</strong> Graças a bioinsumos, sementes melhoradas e sensores de precisão, o agricultor consegue produzir muito mais no mesmo pedaço de terra. É o chamado "efeito poupa-terra": produz-se mais quilos de alimento por hectare, sem a necessidade de abrir novas áreas de mata nativa.</li>
-            <li><strong>Práticas Regenerativas:</strong> Técnicas como o plantio direto (que protege o solo), a rotação de culturas e a Integração Lavoura-Pecuária-Floresta (ILPF) transformam as fazendas em aliadas do meio ambiente. Elas ajudam a reter água, recuperam solos degradados e sequestram carbono da atmosfera.</li>
-            <li><strong>Conservação e Legislação:</strong> O produtor rural brasileiro, por exemplo, cumpre regras rigorosas de preservação, mantendo áreas de Reserva Legal e Áreas de Preservação Permanente (APPs) com vegetação nativa dentro de suas propriedades.</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>⚡ O Grande Desafio</h2>
-        <p>O mundo precisa de comida, mas também precisa de água limpa, solo fértil e clima estável. A agricultura sustentável prova que a produção e a conservação não são inimigas; elas dependem uma da outra.</p>
-        
-        <h3>Por que isso importa para o futuro?</h3>
-        <p>Um agro forte de verdade não esgota o solo hoje para passar fome amanhã. Ele cuida da terra para que ela continue gerando frutos por gerações. Quando unimos a eficiência do campo com o respeito ao meio ambiente, geramos emprego, movimentamos a economia e garantimos a saúde do nosso planeta.</p>
-    </div>
-
-    <div class="card centro">
-        <h2>Escolha uma opção</h2>
-
-        <button onclick="alert('História em quadrinhos em construção!')">
-        📚 História em Quadrinhos
-        </button>
-
-        <button onclick="window.open('https://notebooklm.google.com/notebook/60bd64e2-29f2-4f5d-8b8b-1fde94ced9b2/artifact/9bf7715d-15f8-4b66-937a-c79a070d9721?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_', '_blank')">
-        🎬 Assistir Vídeo
-        </button>
-
-        <button onclick="iniciarQuiz()">
-        🎮 Fazer Quiz
-        </button>
-    </div>
-
-</div>
-
-<div id="quiz" class="tela" style="display:none">
-
-    <div class="card">
-
-        <h2 id="pergunta"></h2>
-
-        <div id="alternativas" class="centro"></div>
-
-        <h3 id="resultado"></h3>
-
-        <h2 id="pontos">⭐ Pontos: 0</h2>
-
-    </div>
-
-</div>
-
-<script>
-
-let nomeUsuario = "";
-
-function entrar(){
-
-nomeUsuario = document.getElementById("nome").value;
-
-if(nomeUsuario == ""){
-    alert("Digite seu nome.");
-    return;
-}
-
-document.getElementById("login").style.display="none";
-document.getElementById("principal").style.display="block";
-
-document.getElementById("saudacao").innerHTML =
-"Olá, " + nomeUsuario + "! 👋";
-
-}
-
 let perguntas = [
 
 {
-pergunta:"Qual prática ajuda a conservar o solo?",
-opcoes:["Plantio direto","Queimada","Desmatamento"],
-correta:"Plantio direto"
+pergunta:"Qual é a principal mudança de paradigma entre a visão antiga da agricultura e o conceito de Agro Forte apresentado no texto?",
+opcoes:[
+"A transição do avanço sobre florestas para o uso de inteligência e tecnologia para produzir mais no mesmo espaço.",
+"A substituição total da produção de alimentos pela conservação integral de matas nativas.",
+"O abandono do uso de sementes e insumos em favor de técnicas puramente manuais.",
+"A redução da produtividade agrícola para proteger o meio ambiente."
+],
+correta:0,
+explicacao:"O Agro Forte utiliza tecnologia e inovação para aumentar a produção sem ampliar o desmatamento."
 },
 
 {
-pergunta:"Qual tecnologia ajuda a economizar água?",
-opcoes:["Irrigação inteligente","Queimada","Poluição"],
-correta:"Irrigação inteligente"
+pergunta:"Como o efeito poupa-terra contribui para o futuro sustentável mencionado no material?",
+opcoes:[
+"Limitando o uso de tecnologias para evitar sobrecarga do solo.",
+"Substituindo a produção agrícola por florestas artificiais.",
+"Aumentando a produtividade por hectare, evitando novos desmatamentos.",
+"Reduzindo a produção de alimentos por décadas."
+],
+correta:2,
+explicacao:"Produzir mais na mesma área reduz a necessidade de abrir novas áreas de mata."
 },
 
 {
-pergunta:"Por que as abelhas são importantes?",
-opcoes:["Polinização","Produzem plástico","Produzem combustível"],
-correta:"Polinização"
+pergunta:"Dentre as práticas regenerativas citadas, qual técnica permite unir atividades produtivas e florestais no mesmo espaço?",
+opcoes:[
+"Plantio direto focado apenas na proteção do maquinário.",
+"Expansão de Reservas Legais.",
+"Uso exclusivo de bioinsumos sintéticos.",
+"Integração Lavoura-Pecuária-Floresta (ILPF)."
+],
+correta:3,
+explicacao:"A ILPF integra agricultura, pecuária e floresta para aumentar a sustentabilidade."
 },
 
 {
-pergunta:"O que significa agricultura sustentável?",
-opcoes:
+pergunta:"Qual é um dos benefícios ambientais diretos do plantio direto e da rotação de culturas?",
+opcoes:[
+"Aumento do escoamento superficial da água.",
+"Redução da mão de obra.",
+"Eliminação da biodiversidade.",
+"Retenção de água no solo e sequestro de carbono."
+],
+correta:3,
+explicacao:"Essas técnicas melhoram a qualidade do solo e ajudam a combater as mudanças climáticas."
+},
+
+{
+pergunta:"Em relação à legislação ambiental brasileira, o que o produtor rural deve manter dentro da propriedade?",
+opcoes:[
+"Zonas exclusivas para o mercado interno.",
+"Áreas de espécies exóticas para corte imediato.",
+"Áreas de Reserva Legal e APPs.",
+"Sensores obrigatórios fornecidos pelo governo."
+],
+correta:2,
+explicacao:"A legislação exige a preservação de áreas naturais dentro das propriedades."
+},
+
+{
+pergunta:"De acordo com o texto, qual é o risco de não se adotar uma agricultura sustentável hoje?",
+opcoes:[
+"Aumentar empregos excessivamente.",
+"Tornar o solo fértil demais.",
+"Garantir clima estável.",
+"Esgotar o solo agora e enfrentar escassez de recursos no futuro."
+],
+correta:3,
+explicacao:"A falta de sustentabilidade compromete a produção agrícola das próximas gerações."
+},
+
+{
+pergunta:"Por que produção e conservação dependem uma da outra?",
+opcoes:[
+"Porque florestas dependem de fertilizantes agrícolas.",
+"Porque as leis aumentam os preços dos alimentos.",
+"Porque sensores precisam de áreas desmatadas.",
+"Porque a agricultura precisa de solo fértil, água limpa e clima estável."
+],
+correta:3,
+explicacao:"A natureza fornece os recursos essenciais para a agricultura."
+}
+
+];
+
+let atual = 0;
+let pontos = 0;
+
+function iniciarQuiz(){
+
+document.getElementById("principal").style.display = "none";
+document.getElementById("quiz").style.display = "block";
+
+mostrarPergunta();
+
+}
+
+function mostrarPergunta(){
+
+if(atual >= perguntas.length){
+
+document.getElementById("quiz").innerHTML = `
+<div class="card">
+<h1>🏆 Quiz Finalizado!</h1>
+<h2>${nomeUsuario}, você fez ${pontos} de ${perguntas.length} pontos.</h2>
+
+<p>${
+pontos >= 6
+? "🌱 Parabéns! Você entende muito sobre Agro Forte e Sustentabilidade!"
+: "📚 Continue estudando para proteger o futuro do planeta!"
+}</p>
+
+<button onclick="location.reload()">Jogar Novamente</button>
+</div>
+`;
+
+return;
+
+}
+
+let p = perguntas[atual];
+
+document.getElementById("pergunta").innerHTML =
+`${atual + 1}/${perguntas.length}<br><br>${p.pergunta}`;
+
+let html = "";
+
+for(let i=0;i<p.opcoes.length;i++){
+
+html += `
+<button class="opcao"
+onclick="responder(${i})">
+${String.fromCharCode(65+i)}. ${p.opcoes[i]}
+</button><br>
+`;
+
+}
+
+document.getElementById("alternativas").innerHTML = html;
+document.getElementById("resultado").innerHTML = "";
+
+}
+
+function responder(escolhida){
+
+let p = perguntas[atual];
+
+if(escolhida === p.correta){
+
+pontos++;
+
+document.getElementById("resultado").innerHTML =
+`✅ Resposta correta!<br><br>${p.explicacao}`;
+
+}else{
+
+document.getElementById("resultado").innerHTML =
+`❌ Resposta incorreta.<br><br>${p.explicacao}`;
+
+}
+
+document.getElementById("pontos").innerHTML =
+"⭐ Pontos: " + pontos;
+
+atual++;
+
+setTimeout(()=>{
+mostrarPergunta();
+},4000);
+
+}
