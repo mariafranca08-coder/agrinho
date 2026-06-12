@@ -6,269 +6,500 @@
 <title>Agro Forte - Futuro Sustentável</title>
 
 <style>
-body{
-    font-family: Arial, sans-serif;
-    background:#e8f5e9;
-    margin:0;
-    text-align:center;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-.tela{
-    max-width:900px;
-    margin:auto;
-    padding:20px;
+body{
+background:#d8f5d0;
+}
+
+#inicio{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(#d8f5d0,#b7e4a7);
+text-align:center;
+padding:20px;
+}
+
+#inicio h1{
+color:#1b5e20;
+font-size:42px;
+margin-bottom:20px;
+}
+
+#inicio input{
+padding:12px;
+width:280px;
+border-radius:10px;
+border:1px solid #999;
+margin-bottom:15px;
+}
+
+#inicio button{
+padding:12px 25px;
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-size:18px;
+}
+
+#app{
+display:none;
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.caixa{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 10px rgba(0,0,0,0.15);
+margin-bottom:20px;
+}
+
+.banner img{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:20px;
 }
 
 .card{
-    background:white;
-    padding:20px;
-    margin:15px;
-    border-radius:15px;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
+background:#e8f5e9;
+padding:20px;
+border-radius:15px;
+border-left:5px solid #2e7d32;
 }
 
-button{
-    background:#2e7d32;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:10px;
-    cursor:pointer;
-    margin:10px;
-    font-size:16px;
+.card h3{
+color:#1b5e20;
+margin-bottom:10px;
 }
 
-button:hover{
-    background:#1b5e20;
+.frase{
+background:#2e7d32;
+color:white;
+padding:20px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+border-radius:15px;
+margin-top:20px;
 }
 
-input{
-    padding:10px;
-    width:250px;
-    border-radius:8px;
-    border:1px solid #ccc;
+.menu{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-top:20px;
 }
 
-img{
-    width:100%;
-    border-radius:10px;
+.menu button{
+padding:12px 20px;
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
 }
+
+.secao{
+display:none;
+margin-top:20px;
+}
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.cardFoto{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 3px 10px rgba(0,0,0,0.15);
+}
+
+.cardFoto img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.cardFoto h3{
+padding:10px;
+color:#1b5e20;
+}
+
+.cardFoto p{
+padding:0 10px 15px;
+line-height:1.6;
+}
+
+.pergunta{
+background:#f1fff1;
+padding:15px;
+border-radius:10px;
+margin-bottom:15px;
+border-left:5px solid green;
+}
+
+.tabuleiro{
+display:grid;
+grid-template-columns:repeat(5,80px);
+gap:10px;
+justify-content:center;
+margin-top:20px;
+}
+
+.carta{
+width:80px;
+height:80px;
+background:#4caf50;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:35px;
+border-radius:10px;
+cursor:pointer;
+color:white;
+}
+
 </style>
 </head>
 
 <body>
 
-<div id="login" class="tela">
-    <div class="card">
-        <h1>🌱 Agro Forte, Futuro Sustentável 🌱</h1>
+<div id="inicio">
 
-        <p>Digite seu nome:</p>
+<h1>🌱 Agro Forte: Futuro Sustentável 🌱</h1>
 
-        <input type="text" id="nome">
+<input type="text" id="nome" placeholder="Digite seu nome">
 
-        <br><br>
-
-        <button onclick="entrar()">Entrar</button>
-    </div>
-</div>
-
-<div id="principal" class="tela" style="display:none">
-
-    <div class="card">
-        <h1 id="saudacao"></h1>
-
-        <p>
-        Bem-vindo ao Agro Forte, Futuro Sustentável.
-        Aqui você vai aprender como a agricultura pode produzir
-        alimentos e ao mesmo tempo preservar o meio ambiente.
-        </p>
-    </div>
-
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1000">
-
-        <h2>🌾 Produção e Sustentabilidade</h2>
-
-        <p>
-        O agro produz alimentos para milhões de pessoas.
-        Hoje a tecnologia ajuda os agricultores a economizar água,
-        proteger o solo e preservar a natureza.
-        </p>
-
-        <p>
-        O objetivo é produzir mais alimentos com menos impacto ambiental.
-        Esse é o equilíbrio entre produção e meio ambiente.
-        </p>
-    </div>
-
-    <div class="card">
-        <h2>Escolha uma opção</h2>
-
-        <button onclick="alert('História em quadrinhos em construção!')">
-        📚 História em Quadrinhos
-        </button>
-
-        <button onclick="alert('Vídeo em construção!')">
-        🎬 Assistir Vídeo
-        </button>
-
-        <button onclick="iniciarQuiz()">
-        🎮 Fazer Quiz
-        </button>
-    </div>
+<button onclick="entrar()">Entrar</button>
 
 </div>
 
-<div id="quiz" class="tela" style="display:none">
+<div id="app">
 
-    <div class="card">
+<div class="caixa">
 
-        <h2 id="pergunta"></h2>
+<h2 id="saudacao"></h2>
 
-        <div id="alternativas"></div>
+<br>
 
-        <h3 id="resultado"></h3>
+<div class="banner">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200">
+</div>
 
-        <h2 id="pontos">⭐ Pontos: 0</h2>
+<br>
 
-    </div>
+<p>
+O Agro Forte representa um futuro sustentável baseado no equilíbrio entre produção e meio ambiente.
+A agricultura moderna busca produzir alimentos preservando a natureza, economizando água, protegendo o solo
+e garantindo qualidade de vida para as futuras gerações.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>🚜 Tecnologia no Campo</h3>
+<p>Máquinas modernas ajudam a aumentar a produtividade agrícola.</p>
+</div>
+
+<div class="card">
+<h3>💧 Economia de Água</h3>
+<p>A irrigação inteligente reduz desperdícios e preserva recursos naturais.</p>
+</div>
+
+<div class="card">
+<h3>🌳 Preservação Ambiental</h3>
+<p>Proteção da fauna, flora e recursos naturais.</p>
+</div>
+
+<div class="card">
+<h3>🌞 Energia Limpa</h3>
+<p>Energia solar contribui para um futuro sustentável.</p>
+</div>
+
+</div>
+
+<div class="frase">
+🌱 Produzir hoje pensando no amanhã. 🌱
+</div>
+
+<div class="menu">
+<button onclick="mostrar('fotos')">📷 Fotos</button>
+<button onclick="mostrar('quiz')">📝 Quiz</button>
+<button onclick="mostrar('memoria')">🧠 Jogo da Memória</button>
+</div>
+
+<!-- FOTOS -->
+
+<div id="fotos" class="secao caixa">
+
+<h2>📷 Fotos da Agricultura Sustentável</h2>
+
+<div class="galeria">
+
+<div class="cardFoto">
+<img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800">
+<h3>🚜 Trator Agrícola</h3>
+<p>
+O trator é uma máquina muito importante para a agricultura.
+Ele ajuda no preparo do solo, no transporte de materiais e em diversas tarefas do campo.
+Seu uso aumenta a produtividade e facilita o trabalho dos agricultores.
+</p>
+</div>
+
+<div class="cardFoto">
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800">
+<h3>🌱 Plantio de Mudas</h3>
+<p>
+As mudas são o início da produção agrícola.
+Com os cuidados corretos elas crescem e se transformam em plantas saudáveis.
+O plantio adequado contribui para uma agricultura sustentável.
+</p>
+</div>
+
+<div class="cardFoto">
+<img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800">
+<h3>🌳 Preservação Ambiental</h3>
+<p>
+A preservação da natureza é fundamental para o futuro.
+As áreas verdes ajudam a proteger rios, animais e o solo.
+O equilíbrio entre produção e meio ambiente é essencial.
+</p>
+</div>
+
+<div class="cardFoto">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800">
+<h3>🌾 Produção Agrícola</h3>
+<p>
+A agricultura fornece alimentos para milhões de pessoas.
+Quando realizada de forma sustentável reduz impactos ambientais.
+Produzir e preservar devem caminhar juntos.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- QUIZ -->
+
+<div id="quiz" class="secao caixa">
+
+<h2>📝 Quiz Agro Sustentável</h2>
+
+<div id="quizPerguntas"></div>
+
+<button onclick="corrigirQuiz()">Finalizar Quiz</button>
+
+<h3 id="resultadoQuiz"></h3>
+
+</div>
+
+<!-- MEMÓRIA -->
+
+<div id="memoria" class="secao caixa">
+
+<h2>🧠 Jogo da Memória</h2>
+
+<div class="tabuleiro" id="tabuleiro"></div>
+
+<h3 id="resultadoMemoria"></h3>
+
+</div>
 
 </div>
 
 <script>
 
-let nomeUsuario = "";
-
 function entrar(){
 
-nomeUsuario = document.getElementById("nome").value;
+let nome=document.getElementById("nome").value;
 
-if(nomeUsuario == ""){
-    alert("Digite seu nome.");
-    return;
-}
-
-document.getElementById("login").style.display="none";
-document.getElementById("principal").style.display="block";
-
-document.getElementById("saudacao").innerHTML =
-"Olá, " + nomeUsuario + "! 👋";
-
-}
-
-let perguntas = [
-
-{
-pergunta:"Qual prática ajuda a conservar o solo?",
-opcoes:["Plantio direto","Queimada","Desmatamento"],
-correta:"Plantio direto"
-},
-
-{
-pergunta:"Qual tecnologia ajuda a economizar água?",
-opcoes:["Irrigação inteligente","Queimada","Poluição"],
-correta:"Irrigação inteligente"
-},
-
-{
-pergunta:"Por que as abelhas são importantes?",
-opcoes:["Polinização","Produzem plástico","Produzem combustível"],
-correta:"Polinização"
-},
-
-{
-pergunta:"O que significa agricultura sustentável?",
-opcoes:[
-"Produzir preservando recursos",
-"Desmatar mais",
-"Usar água sem controle"
-],
-correta:"Produzir preservando recursos"
-},
-
-{
-pergunta:"O que ajuda a proteger os rios?",
-opcoes:[
-"Mata ciliar",
-"Lixo",
-"Queimadas"
-],
-correta:"Mata ciliar"
-}
-
-];
-
-let atual = 0;
-let pontos = 0;
-
-function iniciarQuiz(){
-
-document.getElementById("principal").style.display="none";
-document.getElementById("quiz").style.display="block";
-
-carregarPergunta();
-
-}
-
-function carregarPergunta(){
-
-if(atual >= perguntas.length){
-
-document.getElementById("quiz").innerHTML = `
-<div class="card">
-<h1>🏆 Parabéns, ${nomeUsuario}!</h1>
-<h2>Você terminou o quiz.</h2>
-<h2>Pontuação: ${pontos}/${perguntas.length}</h2>
-</div>
-`;
-
+if(nome==""){
+alert("Digite seu nome!");
 return;
 }
 
-let p = perguntas[atual];
+document.getElementById("inicio").style.display="none";
+document.getElementById("app").style.display="block";
 
-document.getElementById("pergunta").innerHTML = p.pergunta;
+document.getElementById("saudacao").innerHTML=
+"Olá, "+nome+"! Seja bem-vindo ao nosso aplicativo.";
 
-let html = "";
+}
 
-for(let opcao of p.opcoes){
+function mostrar(id){
 
-html += `
-<button onclick="responder('${opcao}')">
-${opcao}
-</button><br>
+document.querySelectorAll(".secao").forEach(secao=>{
+secao.style.display="none";
+});
+
+document.getElementById(id).style.display="block";
+
+}
+
+const perguntas=[
+
+["O que é agricultura sustentável?",["Produção com preservação ambiental","Desmatamento"],0],
+["Qual recurso natural deve ser preservado?",["Água","Poluição"],0],
+["Qual energia é renovável?",["Solar","Carvão"],0],
+["O que ajuda a natureza?",["Reciclagem","Lixo no rio"],0],
+["Qual prática protege o solo?",["Plantio consciente","Queimadas"],0],
+["O que é compostagem?",["Produção de adubo","Poluição"],0],
+["O que reduz impactos ambientais?",["Sustentabilidade","Desperdício"],0],
+["O que devemos preservar?",["Fauna e flora","Poluição"],0],
+["Qual é o objetivo do agro sustentável?",["Produzir e preservar","Destruir recursos"],0],
+["O Agro Forte busca:",["Equilíbrio ambiental","Mais poluição"],0]
+
+];
+
+let html="";
+
+perguntas.forEach((p,i)=>{
+
+html+=`
+<div class="pergunta">
+<b>${i+1}. ${p[0]}</b><br><br>
+
+<label>
+<input type="radio" name="q${i}" value="0">
+${p[1][0]}
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="q${i}" value="1">
+${p[1][1]}
+</label>
+</div>
 `;
 
-}
+});
 
-document.getElementById("alternativas").innerHTML = html;
+document.getElementById("quizPerguntas").innerHTML=html;
 
-}
+function corrigirQuiz(){
 
-function responder(opcao){
+let pontos=0;
 
-if(opcao == perguntas[atual].correta){
+perguntas.forEach((p,i)=>{
 
+let r=document.querySelector('input[name="q'+i+'"]:checked');
+
+if(r && Number(r.value)==p[2]){
 pontos++;
+}
 
-document.getElementById("resultado").innerHTML =
-"✅ Resposta correta!";
+});
+
+document.getElementById("resultadoQuiz").innerHTML=
+"✅ Você acertou "+pontos+" de 10 perguntas.";
+
+}
+
+let emojis=[
+"🌱","🌱",
+"🚜","🚜",
+"🌾","🌾",
+"🌳","🌳",
+"☀️","☀️",
+"💧","💧",
+"🐝","🐝",
+"🌻","🌻",
+"🥕","🥕",
+"🍅","🍅"
+];
+
+emojis.sort(()=>Math.random()-0.5);
+
+let primeira=null;
+let segunda=null;
+let bloqueado=false;
+let pares=0;
+
+emojis.forEach(simbolo=>{
+
+let carta=document.createElement("div");
+
+carta.className="carta";
+carta.innerHTML="?";
+
+carta.onclick=function(){
+
+if(bloqueado || carta.innerHTML!="?") return;
+
+carta.innerHTML=simbolo;
+
+if(!primeira){
+primeira=carta;
+return;
+}
+
+segunda=carta;
+
+if(primeira.innerHTML===segunda.innerHTML){
+
+pares++;
+
+primeira=null;
+segunda=null;
+
+if(pares===10){
+
+document.getElementById("resultadoMemoria").innerHTML=
+"🎉 Parabéns! Você completou o jogo da memória!";
+
+}
 
 }else{
 
-document.getElementById("resultado").innerHTML =
-"❌ Resposta incorreta!";
+bloqueado=true;
+
+setTimeout(()=>{
+
+primeira.innerHTML="?";
+segunda.innerHTML="?";
+
+primeira=null;
+segunda=null;
+
+bloqueado=false;
+
+},800);
 
 }
 
-document.getElementById("pontos").innerHTML =
-"⭐ Pontos: " + pontos;
+};
 
-atual++;
+document.getElementById("tabuleiro").appendChild(carta);
 
-setTimeout(carregarPergunta,1200);
-
-}
+});
 
 </script>
 
