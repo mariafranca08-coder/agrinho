@@ -264,21 +264,11 @@ e garantindo qualidade de vida para as futuras gerações.
 
 <div class="cardFoto">
 <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800">
-<h3>🚜 Trator Agrícola</h3>
+<h3>🥕 Produção de Hortaliças</h3>
 <p>
-O trator é uma máquina muito importante para a agricultura.
-Ele ajuda no preparo do solo, no transporte de materiais e em diversas tarefas do campo.
-Seu uso aumenta a produtividade e facilita o trabalho dos agricultores.
-</p>
-</div>
-
-<div class="cardFoto">
-<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800">
-<h3>🌱 Plantio de Mudas</h3>
-<p>
-As mudas são o início da produção agrícola.
-Com os cuidados corretos elas crescem e se transformam em plantas saudáveis.
-O plantio adequado contribui para uma agricultura sustentável.
+As hortaliças são fundamentais para a alimentação saudável e para a agricultura.
+Cultivos como cenoura, alface e beterraba fornecem nutrientes importantes para a população.
+A produção sustentável de hortaliças ajuda a preservar o solo, economizar água e garantir alimentos de qualidade.
 </p>
 </div>
 
