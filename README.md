@@ -292,6 +292,15 @@ Produzir e preservar devem caminhar juntos.
 </p>
 </div>
 
+<div class="cardFoto">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800">
+<h3>🌳 Preservação Ambiental</h3>
+<p>
+A preservação da natureza é fundamental para o futuro.
+As áreas verdes ajudam a proteger rios, animais e o solo.
+O equilíbrio entre produção e meio ambiente é essencial.
+</p>
+</div>
 </div>
 
 </div>
