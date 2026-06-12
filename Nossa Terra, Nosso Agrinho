@@ -1,293 +1,507 @@
-HTML
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossa Terra, Nosso Agrinho</title>
-    <style>
-        /* Configurações Globais */
-        :root {
-            --verde-escuro: #1b4d3e;
-            --verde-claro: #2ae1a6;
-            --verde-folha: #4caf50;
-            --bege-claro: #f4f9f4;
-            --texto-escuro: #2c3e50;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Forte - Futuro Sustentável</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bege-claro);
-            color: var(--texto-escuro);
-            line-height: 1.6;
-        }
+<style>
 
-        header {
-            background: linear-gradient(135deg, var(--verde-escuro), #0f2b22);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
+body{
+background:#d8f5d0;
+}
 
-        header p {
-            font-size: 1.2rem;
-            color: var(--verde-claro);
-            max-width: 800px;
-            margin: 1rem auto 0 auto;
-        }
+#inicio{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(#d8f5d0,#b7e4a7);
+text-align:center;
+padding:20px;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
+#inicio h1{
+color:#1b5e20;
+font-size:42px;
+margin-bottom:20px;
+}
 
-        /* Seções */
-        section {
-            background: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
+#inicio input{
+padding:12px;
+width:280px;
+border-radius:10px;
+border:1px solid #999;
+margin-bottom:15px;
+}
 
-        h2 {
-            color: var(--verde-escuro);
-            border-bottom: 3px solid var(--verde-claro);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
+#inicio button{
+padding:12px 25px;
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-size:18px;
+}
 
-        /* Pilares Agroforte */
-        .pilares {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
+#app{
+display:none;
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
 
-        .pilar-card {
-            background: #eef7ee;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 5px solid var(--verde-folha);
-        }
+.caixa{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 10px rgba(0,0,0,0.15);
+margin-bottom:20px;
+}
 
-        .pilar-card h3 {
-            margin-top: 0;
-            color: var(--verde-escuro);
-        }
+.banner img{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:15px;
+}
 
-        /* Tabela da Galeria */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1.5rem;
-        }
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:20px;
+}
 
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+.card{
+background:#e8f5e9;
+padding:20px;
+border-radius:15px;
+border-left:5px solid #2e7d32;
+}
 
-        th {
-            background-color: var(--verde-escuro);
-            color: white;
-        }
+.card h3{
+color:#1b5e20;
+margin-bottom:10px;
+}
 
-        tr:hover {
-            background-color: #f1f1f1;
-        }
+.frase{
+background:#2e7d32;
+color:white;
+padding:20px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+border-radius:15px;
+margin-top:20px;
+}
 
-        /* Seção de Vídeos */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
+.menu{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-top:20px;
+}
 
-        .video-card {
-            background: #333;
-            color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
+.menu button{
+padding:12px 20px;
+background:#2e7d32;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
 
-        .video-placeholder {
-            background: #222;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+.secao{
+display:none;
+margin-top:20px;
+}
 
-        .video-placeholder:hover {
-            background: var(--verde-folha);
-        }
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
 
-        .video-card p {
-            padding: 1rem;
-            margin: 0;
-            font-weight: bold;
-        }
+.cardFoto{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 3px 10px rgba(0,0,0,0.15);
+}
 
-        /* Curiosidades */
-        .curiosidade-item {
-            background: #fff8e7;
-            border-radius: 8px;
-            padding: 1rem 1.5rem;
-            margin-bottom: 1rem;
-            border-left: 5px solid #ffcc00;
-        }
+.cardFoto img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
 
-        /* Chamada para Ação (Footer/CTA) */
-        .cta {
-            text-align: center;
-            background: var(--verde-escuro);
-            color: white;
-            padding: 3rem 1rem;
-            border-radius: 10px;
-        }
+.cardFoto h3{
+padding:10px;
+color:#1b5e20;
+}
 
-        .btn {
-            display: inline-block;
-            background-color: var(--verde-claro);
-            color: var(--verde-escuro);
-            padding: 0.8rem 2rem;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-            margin-top: 1rem;
-            transition: transform 0.2s, background 0.3s;
-        }
+.cardFoto p{
+padding:0 10px 15px;
+line-height:1.6;
+}
 
-        .btn:hover {
-            transform: scale(1.05);
-            background-color: white;
-        }
-    </style>
+.pergunta{
+background:#f1fff1;
+padding:15px;
+border-radius:10px;
+margin-bottom:15px;
+border-left:5px solid green;
+}
+
+.tabuleiro{
+display:grid;
+grid-template-columns:repeat(5,80px);
+gap:10px;
+justify-content:center;
+margin-top:20px;
+}
+
+.carta{
+width:80px;
+height:80px;
+background:#4caf50;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:35px;
+border-radius:10px;
+cursor:pointer;
+color:white;
+}
+
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>🌍 Nossa Terra, Nosso Agrinho</h1>
-        <p>O futuro do Agroforte é sustentável, tecnológico e divertido! Bem-vindo ao espaço onde a tecnologia do campo se encontra com o respeito à natureza.</p>
-    </header>
+<div id="inicio">
 
-    <div class="container">
+<h1>🌱 Agro Forte: Futuro Sustentável 🌱</h1>
 
-        <section>
-            <h2>🚀 O que é o Agroforte Sustentável?</h2>
-            <p>Não é apenas produzir mais, é produzir melhor. O equilíbrio perfeito existe e nós te mostramos como ele funciona na prática!</p>
-            
-            <div class="pilares">
-                <div class="pilar-card">
-                    <h3>📈 Produção Máxima</h3>
-                    <p>Uso de tecnologia de ponta, drones e inteligência artificial para otimizar as colheitas.</p>
-                </div>
-                <div class="pilar-card">
-                    <h3>🍃 Impacto Mínimo</h3>
-                    <p>Proteção de nascentes, rotação de culturas e uso de energias renováveis (como a solar e a biomassa).</p>
-                </div>
-                <div class="pilar-card">
-                    <h3>🤝 Conexão Direta</h3>
-                    <p>Informação descomplicada para que todo mundo entenda o valor do campo.</p>
-                </div>
-            </div>
-        </section>
+<input type="text" id="nome" placeholder="Digite seu nome">
 
-        <section>
-            <h2>📸 Janela do Campo (Galeria de Fotos)</h2>
-            <p>Espaço dedicado a imagens marcantes e cheias de vida. Veja a sustentabilidade de perto:</p>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Foto</th>
-                        <th>O que ela mostra?</th>
-                        <th>O impacto positivo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>🌱 Tecnologia Verde</strong></td>
-                        <td>Drones sobrevoando plantações de precisão.</td>
-                        <td>Redução drástica no uso de insumos e água.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>🐝 Polinizadores em Ação</strong></td>
-                        <td>Abelhas em áreas de preservação ao lado das lavouras.</td>
-                        <td>Biodiversidade garantida e plantas mais fortes.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>☀️ Energia do Futuro</strong></td>
-                        <td>Painéis solares alimentando sistemas de irrigação.</td>
-                        <td>Produção limpa e com emissão zero de carbono.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+<button onclick="entrar()">Entrar</button>
 
-        <section>
-            <h2>🎬 Curta o Campo (Vídeos e Reels)</h2>
-            <p>Vídeos curtos, dinâmicos e fáceis de entender. Clique e aprenda em segundos:</p>
-            
-            <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-placeholder">🌱</div>
-                    <p>"O Segredo do Solo Vivo"</p>
-                </div>
-                <div class="video-card">
-                    <div class="video-placeholder">☕</div>
-                    <p>"De onde vem o seu café?"</p>
-                </div>
-                <div class="video-card">
-                    <div class="video-placeholder">🤖</div>
-                    <p>"Agro do Futuro em 60s"</p>
-                </div>
-            </div>
-        </section>
+</div>
 
-        <section>
-            <h2>💡 Você Sabia? (Curiosidades Divertidas)</h2>
-            
-            <div class="curiosidade-item">
-                <h3>🇧🇷 O Brasil é Gigante no Verde</h3>
-                <p>Sabia que os agricultores brasileiros preservam, por lei, uma enorme parte de suas propriedades com mata nativa? O agro ajuda a guardar a nossa floresta!</p>
-            </div>
+<div id="app">
 
-            <div class="curiosidade-item">
-                <h3>💧 Gotejo Inteligente</h3>
-                <p>A irrigação moderna não desperdiça água. Ela vai direto na raiz da planta, gota a gota, como se fosse um batom hidratante.</p>
-            </div>
+<div class="caixa">
 
-            <div class="curiosidade-item">
-                <h3>🐞 Insetos do Bem</h3>
-                <p>Nem todo inseto é praga! Muitos deles são os "super-heróis" do campo, ajudando a combater os bichinhos que fazem mal às plantas.</p>
-            </div>
-        </section>
+<h2 id="saudacao"></h2>
 
-        <section class="cta">
-            <h2>🤝 Faça Parte Desse Movimento!</h2>
-            <p>O futuro da nossa terra depende do conhecimento. Compartilhe nossas fotos, assista aos vídeos e espalhe essa ideia!</p>
-            <a href="#" class="btn">Compartilhar o Agroforte</a>
-        </section>
+<br>
 
-    </div>
+<div class="banner">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200">
+</div>
+
+<br>
+
+<p>
+O Agro Forte representa um futuro sustentável baseado no equilíbrio entre produção e meio ambiente.
+A agricultura moderna busca produzir alimentos preservando a natureza, economizando água, protegendo o solo
+e garantindo qualidade de vida para as futuras gerações.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>🚜 Tecnologia no Campo</h3>
+<p>Máquinas modernas ajudam a aumentar a produtividade agrícola.</p>
+</div>
+
+<div class="card">
+<h3>💧 Economia de Água</h3>
+<p>A irrigação inteligente reduz desperdícios e preserva recursos naturais.</p>
+</div>
+
+<div class="card">
+<h3>🌳 Preservação Ambiental</h3>
+<p>Proteção da fauna, flora e recursos naturais.</p>
+</div>
+
+<div class="card">
+<h3>🌞 Energia Limpa</h3>
+<p>Energia solar contribui para um futuro sustentável.</p>
+</div>
+
+</div>
+
+<div class="frase">
+🌱 Produzir hoje pensando no amanhã. 🌱
+</div>
+
+<div class="menu">
+<button onclick="mostrar('fotos')">📷 Fotos</button>
+<button onclick="mostrar('quiz')">📝 Quiz</button>
+<button onclick="mostrar('memoria')">🧠 Jogo da Memória</button>
+</div>
+
+<!-- FOTOS -->
+
+<div id="fotos" class="secao caixa">
+
+<h2>📷 Fotos da Agricultura Sustentável</h2>
+
+<div class="galeria">
+
+<div class="cardFoto">
+<img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800">
+<h3>🚜 Trator Agrícola</h3>
+<p>
+O trator é uma máquina muito importante para a agricultura.
+Ele ajuda no preparo do solo, no transporte de materiais e em diversas tarefas do campo.
+Seu uso aumenta a produtividade e facilita o trabalho dos agricultores.
+</p>
+</div>
+
+<div class="cardFoto">
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800">
+<h3>🌱 Plantio de Mudas</h3>
+<p>
+As mudas são o início da produção agrícola.
+Com os cuidados corretos elas crescem e se transformam em plantas saudáveis.
+O plantio adequado contribui para uma agricultura sustentável.
+</p>
+</div>
+
+<div class="cardFoto">
+<img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800">
+<h3>🌳 Preservação Ambiental</h3>
+<p>
+A preservação da natureza é fundamental para o futuro.
+As áreas verdes ajudam a proteger rios, animais e o solo.
+O equilíbrio entre produção e meio ambiente é essencial.
+</p>
+</div>
+
+<div class="cardFoto">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800">
+<h3>🌾 Produção Agrícola</h3>
+<p>
+A agricultura fornece alimentos para milhões de pessoas.
+Quando realizada de forma sustentável reduz impactos ambientais.
+Produzir e preservar devem caminhar juntos.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- QUIZ -->
+
+<div id="quiz" class="secao caixa">
+
+<h2>📝 Quiz Agro Sustentável</h2>
+
+<div id="quizPerguntas"></div>
+
+<button onclick="corrigirQuiz()">Finalizar Quiz</button>
+
+<h3 id="resultadoQuiz"></h3>
+
+</div>
+
+<!-- MEMÓRIA -->
+
+<div id="memoria" class="secao caixa">
+
+<h2>🧠 Jogo da Memória</h2>
+
+<div class="tabuleiro" id="tabuleiro"></div>
+
+<h3 id="resultadoMemoria"></h3>
+
+</div>
+
+</div>
+
+<script>
+
+function entrar(){
+
+let nome=document.getElementById("nome").value;
+
+if(nome==""){
+alert("Digite seu nome!");
+return;
+}
+
+document.getElementById("inicio").style.display="none";
+document.getElementById("app").style.display="block";
+
+document.getElementById("saudacao").innerHTML=
+"Olá, "+nome+"! Seja bem-vindo ao nosso aplicativo.";
+
+}
+
+function mostrar(id){
+
+document.querySelectorAll(".secao").forEach(secao=>{
+secao.style.display="none";
+});
+
+document.getElementById(id).style.display="block";
+
+}
+
+const perguntas=[
+
+["O que é agricultura sustentável?",["Produção com preservação ambiental","Desmatamento"],0],
+["Qual recurso natural deve ser preservado?",["Água","Poluição"],0],
+["Qual energia é renovável?",["Solar","Carvão"],0],
+["O que ajuda a natureza?",["Reciclagem","Lixo no rio"],0],
+["Qual prática protege o solo?",["Plantio consciente","Queimadas"],0],
+["O que é compostagem?",["Produção de adubo","Poluição"],0],
+["O que reduz impactos ambientais?",["Sustentabilidade","Desperdício"],0],
+["O que devemos preservar?",["Fauna e flora","Poluição"],0],
+["Qual é o objetivo do agro sustentável?",["Produzir e preservar","Destruir recursos"],0],
+["O Agro Forte busca:",["Equilíbrio ambiental","Mais poluição"],0]
+
+];
+
+let html="";
+
+perguntas.forEach((p,i)=>{
+
+html+=`
+<div class="pergunta">
+<b>${i+1}. ${p[0]}</b><br><br>
+
+<label>
+<input type="radio" name="q${i}" value="0">
+${p[1][0]}
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="q${i}" value="1">
+${p[1][1]}
+</label>
+</div>
+`;
+
+});
+
+document.getElementById("quizPerguntas").innerHTML=html;
+
+function corrigirQuiz(){
+
+let pontos=0;
+
+perguntas.forEach((p,i)=>{
+
+let r=document.querySelector('input[name="q'+i+'"]:checked');
+
+if(r && Number(r.value)==p[2]){
+pontos++;
+}
+
+});
+
+document.getElementById("resultadoQuiz").innerHTML=
+"✅ Você acertou "+pontos+" de 10 perguntas.";
+
+}
+
+let emojis=[
+"🌱","🌱",
+"🚜","🚜",
+"🌾","🌾",
+"🌳","🌳",
+"☀️","☀️",
+"💧","💧",
+"🐝","🐝",
+"🌻","🌻",
+"🥕","🥕",
+"🍅","🍅"
+];
+
+emojis.sort(()=>Math.random()-0.5);
+
+let primeira=null;
+let segunda=null;
+let bloqueado=false;
+let pares=0;
+
+emojis.forEach(simbolo=>{
+
+let carta=document.createElement("div");
+
+carta.className="carta";
+carta.innerHTML="?";
+
+carta.onclick=function(){
+
+if(bloqueado || carta.innerHTML!="?") return;
+
+carta.innerHTML=simbolo;
+
+if(!primeira){
+primeira=carta;
+return;
+}
+
+segunda=carta;
+
+if(primeira.innerHTML===segunda.innerHTML){
+
+pares++;
+
+primeira=null;
+segunda=null;
+
+if(pares===10){
+
+document.getElementById("resultadoMemoria").innerHTML=
+"🎉 Parabéns! Você completou o jogo da memória!";
+
+}
+
+}else{
+
+bloqueado=true;
+
+setTimeout(()=>{
+
+primeira.innerHTML="?";
+segunda.innerHTML="?";
+
+primeira=null;
+segunda=null;
+
+bloqueado=false;
+
+},800);
+
+}
+
+};
+
+document.getElementById("tabuleiro").appendChild(carta);
+
+});
+
+</script>
 
 </body>
 </html>
