@@ -272,14 +272,18 @@ A produção sustentável de hortaliças ajuda a preservar o solo, economizar á
 </p>
 </div>
 
-><div class="cardFoto">
-<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800">
-<h3>🌳 Preservação Ambiental</h3>
+>... Produção Agrícola ...
+
+</div>
+
+<div class="cardFoto">
+<img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800">
+<h3>☀️ Energia Solar</h3>
 <p>
-A preservação da natureza é fundamental para o futuro.
-As áreas verdes ajudam a proteger rios, animais e o solo.
-O equilíbrio entre produção e meio ambiente é essencial.
+A energia solar gera eletricidade limpa para equipamentos e irrigação, ajudando a reduzir custos e preservar o meio ambiente.
 </p>
+</div>
+
 </div>
 
 <div class="cardFoto">
